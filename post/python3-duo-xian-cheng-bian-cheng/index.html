@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>python3 多线程编程 | Gridea</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://manoner.github.io/favicon.ico?v=1579528012554">
+<link rel="stylesheet" href="https://manoner.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="什么是线程
+线程是CPU分配资源的基本单位。但一个程序开始运行，这个程序就变成了一个进程，而一个进程相当于一个或者多个线程。当没有多线程编程时，一个进程也是一个主线程，但有多线程编程时，一个进程包含多个线程，包括主线程。使用线程可以实现程序..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://manoner.github.io">
+        <img src="https://manoner.github.io/images/avatar.png?v=1579528012554" class="site-logo">
+        <h1 class="site-title">Gridea</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://manoner.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">python3 多线程编程</h2>
+            <div class="post-date">2020-01-20</div>
+            
+            <div class="post-content" v-pre>
+              <h2 id="什么是线程">什么是线程</h2>
+<p>线程是CPU分配资源的基本单位。但一个程序开始运行，这个程序就变成了一个进程，而一个进程相当于一个或者多个线程。当没有多线程编程时，一个进程也是一个主线程，但有多线程编程时，一个进程包含多个线程，包括主线程。使用线程可以实现程序的并发。</p>
+<!-- more -->
+<h2 id="多线程模块">多线程模块</h2>
+<p>python3对多线程支持的是 threading 模块，应用这个模块可以创建多线程程序，并且在多线程间进行同步和通信。在python3 中，可以通过两种方法来创建线程：</p>
+<ol>
+<li>通过<code>threading.Thread</code> 直接在线程中运行函数；</li>
+<li>通过继承 <code>threading.Thread</code> 类来创建线程;</li>
+</ol>
+<h2 id="多线程threading">多线程threading</h2>
+<pre><code class="language-Python">class Thread:    
+    def __init__(self, group=None, target=None, name=None,
+                 args=(), kwargs=None, *, daemon=None):
+        &quot;&quot;&quot;This constructor should always be called with keyword arguments. Arguments are:
+
+        *group* should be None; reserved for future extension when a ThreadGroup
+        class is implemented.
+        *group* group参数必须为空，参数group是预留的，用于将来扩展；
+
+        *target* is the callable object to be invoked by the run()
+        method. Defaults to None, meaning nothing is called.
+        *target*: 参数target是一个可调用对象（也称为活动[activity]），在线程启动后执行
+
+        *name* is the thread name. By default, a unique name is constructed of
+        the form &quot;Thread-N&quot; where N is a small decimal number.
+        *name*: 参数name是线程的名字。默认值为“Thread-N“，N是一个数字
+
+        *args* is the argument tuple for the target invocation. Defaults to ().
+        *args*：传递给线程函数target的参数,他必须是个tuple类型
+
+        *kwargs* is a dictionary of keyword arguments for the target
+        invocation. Defaults to {}.
+        *kwargs*：kwargs表示关键字参数。字典类型 {}
+
+        If a subclass overrides the constructor, it must make sure to invoke
+        the base class constructor (Thread.__init__()) before doing anything
+        else to the thread.
+
+        &quot;&quot;&quot;
+</code></pre>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://manoner.github.io/post/hello-gridea">
+                  <h3 class="post-title">
+                    Hello Gridea
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>
